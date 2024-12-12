@@ -53,7 +53,7 @@ projet/
 ## **Installation et exécution**
 1. Clonez le dépôt :
    ```bash
-   git clone <url-du-repo>
+   git clone https://github.com/Bessastien/Mini-jeux-Interactifs.git
    ```
 2. Accédez au répertoire du projet :
    ```bash
