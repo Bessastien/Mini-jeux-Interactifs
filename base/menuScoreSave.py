@@ -1,7 +1,7 @@
 import random
-from base.interface_joueurs import *
-from base.sauvegarde import *
-from base.outils import *
+from base.interface_joueurs import Interface, ajouter_joueur, attendre
+from base.sauvegarde import sauvegarder_interface, reset_interface
+from base.outils import gris, jaune, reset, vert, rouge, rose, clear, passer, attendre
 
 
 def titre_choisir_joueur_actif() -> None:
@@ -18,9 +18,13 @@ def titre_choisir_joueur_actif() -> None:
 
 def init_fake_joueur(interface: Interface) -> None:
     """
-    Cette fonction permet d'initialiser les joueurs.
-    Entrées : interface
-    Sorties : aucune
+    Cette fonction permet d'initialiser les joueurs avec des scores aléatoires.
+
+    Args:
+        interface (Interface): L'interface contenant les joueurs.
+
+    Returns:
+        None
     """
     ancienne: int
     ancienne = interface.longueur
@@ -49,8 +53,12 @@ def init_fake_joueur(interface: Interface) -> None:
 def gestion_classement(interface: Interface):
     """
     Cette fonction affiche le classement des pseudos du meilleur au moins bon par jeu dans un tableau.
-    Entrées : interface
-    Sorties : aucune
+
+    Args:
+        interface (Interface): L'interface contenant les joueurs.
+
+    Returns:
+        None
     """
     liste_indices_devinette: list[int]
     liste_indices_allumette: list[int]
@@ -100,23 +108,28 @@ def gestion_classement(interface: Interface):
     # Affichage des scores
     for i in range(interface.longueur):
         print(f"{interface.joueurs[liste_indices_devinette[i]].nom:>15s} : {interface.joueurs[liste_indices_devinette[i]].score_devinette:<8d} "
-              f"| {interface.joueurs[liste_indices_allumette[i]].nom:>15s} : {interface.joueurs[liste_indices_allumette[i]].score_allumette:<8d} "
-              f"| {interface.joueurs[liste_indices_morpion[i]].nom:>15s} : {interface.joueurs[liste_indices_morpion[i]].score_morpion:<8d} "
-              f"| {interface.joueurs[liste_indices_puissance4[i]].nom:>15s} : {interface.joueurs[liste_indices_puissance4[i]].score_puissance4:<8d}")
+              f"│ {interface.joueurs[liste_indices_allumette[i]].nom:>15s} : {interface.joueurs[liste_indices_allumette[i]].score_allumette:<8d} "
+              f"│ {interface.joueurs[liste_indices_morpion[i]].nom:>15s} : {interface.joueurs[liste_indices_morpion[i]].score_morpion:<8d} "
+              f"│ {interface.joueurs[liste_indices_puissance4[i]].nom:>15s} : {interface.joueurs[liste_indices_puissance4[i]].score_puissance4:<8d}")
 
 
 def classement(interface: Interface):
     """
     Cette fonction affiche le classement des pseudos du meilleur au moins bon par jeu.
-    Entrées : interface
-    Sorties : aucune
+
+    Args:
+        interface (Interface): L'interface contenant les joueurs.
+
+    Returns:
+        None
     """
     clear()
     print(f"{gris}={reset}" * 113)
     print(" " * 26 + f"{jaune}Classement des pseudos du meilleur au moins bon par jeu{reset}")
     print(f"{gris}={reset}" * 113)
     print()
-    print(f"         {rose}Devinette{reset}         |         {rose}Allumettes{reset}         |           {rose}Morpion{reset}          |        {rose}Puissance 4{reset}")
+    print(f"         {rose}Devinette{reset}         │         {rose}Allumettes{reset}         │           {rose}Morpion{reset}          │        {rose}Puissance 4{reset}")
+    print(f"                           │                            │                            │")
     gestion_classement(interface)
     print("\n")
     passer()
@@ -125,8 +138,9 @@ def classement(interface: Interface):
 def affichage_menu_CSS() -> int:
     """
     Cette fonction affiche le menu des scores et sauvegardes.
-    Entrées : aucune
-    Sorties : choix
+
+    Returns:
+        int: Le choix de l'utilisateur parmi les options du menu.
     """
     choix: int
     titre_choisir_joueur_actif()
@@ -136,15 +150,19 @@ def affichage_menu_CSS() -> int:
     print("\t4. Importer 10 Joueurs avec scores aléatoires de 0 à 100")
     print("\t5. Retour\n")
     print(f"{gris}={reset}" * 85)
-    choix = int(input("Veuillez entrer 1, 2, 3 ou 4 : "))
+    choix = int(input("Veuillez entrer 1, 2, 3, 4 ou 5 : "))
     return choix
 
 
 def menu_CSS(interface: Interface):
     """
     Cette fonction permet de choisir une action parmi celles proposées dans le menu des scores et sauvegardes.
-    Entrées : aucune
-    Sorties : aucune
+
+    Args:
+        interface (Interface): L'interface contenant les joueurs.
+
+    Returns:
+        None
     """
     choix: int
     choix = 0

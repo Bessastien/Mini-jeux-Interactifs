@@ -1,21 +1,22 @@
-from base.interface_joueurs import *
-from base.outils import *
-from base.sauvegarde import *
+from base.interface_joueurs import choisir_joueur_actif, ajouter_joueurs, menu_supprimer_joueur, Interface
+from base.outils import clear, gris, jaune, reset, rouge, attendre
+from base.sauvegarde import sauvegarder_interface
 
 
 def afficher_menu_joueur() -> int:
     """
     Cette fonction affiche le menu des joueurs.
-    Entrées : aucune
-    Sorties : choix
+
+    Returns:
+        int: Le choix de l'utilisateur parmi les options du menu.
     """
     choix: int
     clear()
     print(f"{gris}={reset}" * 85)
     print(" " * 35 + f"{jaune}Menu des Joueurs{reset}")
     print(f"{gris}={reset}" * 85)
-    print("\n\t1. Choisir les joueurs")
-    print("\t2. Créer un joueur")
+    print("\n\t1. Choisir le(s) joueur(s)")
+    print("\t2. Créer un(des) joueur(s)")
     print("\t3. Supprimer un joueur")
     print("\t4. Retour\n")
     print(f"{gris}={reset}" * 85)
@@ -25,9 +26,13 @@ def afficher_menu_joueur() -> int:
 
 def menu_joueur(interface: Interface) -> None:
     """
-    Cette fonction permet de choisir un joueur.
-    Entrées : aucune
-    Sorties : aucune
+    Cette fonction permet de gérer les actions liées aux joueurs.
+
+    Args:
+        interface (Interface): L'interface contenant les joueurs.
+
+    Returns:
+        None
     """
     choix: int
     choix = 0

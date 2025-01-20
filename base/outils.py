@@ -5,13 +5,16 @@ from time import sleep
 def clear() -> None:
     """
     Cette fonction permet de nettoyer la console.
-    Entrées : aucune
-    Sorties : aucune
+
+    Elle détecte le système d'exploitation et exécute la commande appropriée pour nettoyer la console.
+
+    Returns:
+        None
     """
-    #windows
+    # Windows
     if name == 'nt':
         _ = system('cls')
-    #linux
+    # Linux
     else:
         _ = system('clear')
     print()
@@ -19,23 +22,27 @@ def clear() -> None:
 
 def attendre() -> None:
     """
-    Cette fonction permet de faire une pause.
-    Entrées : aucune
-    Sorties : aucune
+    Cette fonction permet de faire une pause dans l'exécution du programme.
+
+    Elle utilise la fonction sleep pour suspendre l'exécution pendant 1,2 seconde.
+
+    Returns:
+        None
     """
     sleep(1.2)
 
 
 def passer() -> None:
     """
-    Cette fonction permet de faire une pause.
-    Entrées : aucune
-    Sorties : aucune
+    Cette fonction permet de faire une pause dans l'exécution du programme jusqu'à ce que l'utilisateur appuie sur la touche Entrée.
+
+    Returns:
+        None
     """
-    input("Appuyez sur entrée pour continuer...")
+    input("Appuyez sur la touche 'Entrée' pour continuer...")
 
 
-#OUTILS DE COULEURS
+# OUTILS DE COULEURS
 jaune: str
 gris: str
 magenta: str
@@ -55,5 +62,6 @@ rouge = "\033[31m"
 blanc = "\033[37m"
 cyan = "\033[36m"
 rose = "\033[95m"
-
+orange = "\033[91m"
 reset = "\033[0m"
+

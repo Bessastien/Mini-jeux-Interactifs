@@ -27,19 +27,35 @@ Le projet est organisé selon une architecture modulaire :
 
 ```
 projet/
-|-- main.py                   # Point d'entrée du programme
+|-- main.py                        # Point d'entrée du programme
 |-- base/
-|   |-- interface_joueurs.py  # Gestion des joueurs
-|   |-- sauvegarde.py         # Sauvegarde des données
-|   |-- menuJoueurs.py        # Menu de gestion des joueurs
-|   |-- menuScoresSave.py     # Gestion des scores
-|   |-- outils.py             # Fonctions utilitaires
+|   |-- interface_joueurs.py       # Gestion des joueurs
+|   |-- sauvegarde.py              # Sauvegarde des données
+|   |-- menuJoueurs.py             # Menu de gestion des joueurs
+|   |-- menuScoreSave.py           # Gestion des scores
+|   |-- outils.py                  # Fonctions utilitaires
 |-- jeux/
-|   |-- menuJeux.py           # Menu de sélection des jeux
-|   |-- allumette.py          # Jeu des Allumettes
-|   |-- devinette.py          # Jeu de Devinette
-|   |-- morpion.py            # Morpion
-|   |-- puissance4.py         # Puissance 4
+|   |-- menuJeux.py                # Menu de sélection des jeux
+|   |-- allumette/
+|   |   |-- __init__.py            # Initialisation du module allumette
+|   |   |-- bot_allumette.py       # IA pour le jeu des allumettes
+|   |   |-- jeu_allumette.py       # Logique du jeu des allumettes
+|   |   |-- joueur_allumette.py    # Gestion des joueurs pour le jeu des allumettes
+|   |-- devinette/
+|   |   |-- __init__.py            # Initialisation du module devinette
+|   |   |-- bot_devinette.py       # IA pour le jeu de devinette
+|   |   |-- jeu_devinette.py       # Logique du jeu de devinette
+|   |   |-- joueur_devinette.py    # Gestion des joueurs pour le jeu de devinette
+|   |-- morpion/
+|   |   |-- __init__.py            # Initialisation du module morpion
+|   |   |-- bot_morpion.py         # IA pour le jeu de morpion
+|   |   |-- jeu_morpion.py         # Logique du jeu de morpion
+|   |   |-- joueur_morpion.py      # Gestion des joueurs pour le jeu de morpion
+|   |-- puissance4/
+|       |-- __init__.py            # Initialisation du module puissance 4
+|       |-- bot_puissance4.py      # IA pour le jeu de puissance 4
+|       |-- jeu_puissance4.py      # Logique du jeu de puissance 4
+|       |-- joueur_puissance4.py   # Gestion des joueurs pour le jeu de puissance 4
 ```
 
 ---
@@ -87,7 +103,7 @@ Des jeux d’essais ont été réalisés pour valider les fonctionnalités princ
 ## **Améliorations futures**
 Voici quelques idées pour enrichir ce projet :
 
-- Ajout de machines virtuelles pour jouer contre l'ordinateur.
+- Projet fini
 
 ---
 

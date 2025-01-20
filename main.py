@@ -1,9 +1,9 @@
-from base.interface_joueurs import *
+from base.interface_joueurs import Interface, recup_joueur1, recup_joueur2
 from base.menuJoueurs import menu_joueur
 from jeux.menuJeux import menu_jeu
-from base.sauvegarde import *
+from base.sauvegarde import charger_interface, sauvegarder_interface
 from base.menuScoreSave import menu_CSS
-from base.outils import *
+from base.outils import clear, attendre, gris, jaune, rouge, reset
 
 
 def affichage_menu_principal(interface: Interface) -> int:
